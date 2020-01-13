@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Mars Mission</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="jumbotron text-center">
+                <h1 class="display-3"><b>Mission to Mars</b></h1>
+                <button type="button" class="btn btn-primary">Scrape New Data</button>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <body>
+                        <h1>Latest Mars News</h1>
+                        <h5>{{html_mars_data.point1}}</h5> <br>
+                        <p>
+                            {{html_mars_data.point2}}
+                        </p>
+                    </body>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <body>
+                        <h1>Featured Mars Image</h1>
+                        <p>
+                            <img src= "{{html_mars_data.point3}}"  alt="Featured Large Image" style="width:500px;height:500px;">
+                        </p>
+                    </body>
+                </div>
+                <div class="col-md-4">
+                    <body>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <b>Current Weather on Mars</b><br>
+                                {{html_mars_data.point4}}
+
+                            </div>
+                            <p>
+                                <br><b>Mars Facts</b><br>
+                                <iframe src="{{html_mars_data.point5}}" height="200" width="300"></iframe>
+
+                            </p>
+                        </div>                        
+                    </body>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Mars Hemispheres</h2>
+                    {% for data in html_mars_data.point6 %}
+                    <figure class="figure">
+                        <img src="{{data.img_url}}" class="figure-img img-fluid rounded" height="450" width="450" alt="Enhanced Images">
+                        <figcaption class="figure-caption text-right">{{data.title}}</figcaption>
+                      </figure>
+                    {% endfor %}
+                </div>   
+                </div>
+            </div>
+            
+        </div>
+    </body>
+</html>
